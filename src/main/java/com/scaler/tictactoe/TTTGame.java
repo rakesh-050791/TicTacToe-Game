@@ -31,7 +31,7 @@ public class TTTGame {
             players.add(player);
        }
 
-        System.out.println("List of Players = " + players.get(0).getName());
+//        System.out.println("List of Players = " + players.get(0).getName());
 
 
     }
