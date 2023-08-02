@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.ArrayList;
 import com.scaler.tictactoe.exceptions.InvalidGameBuildException;
 import com.scaler.tictactoe.strategies.gamewinningstrategy.GameWinningStrategy;
+import com.scaler.tictactoe.strategies.gamewinningstrategy.OrderOneWinningStrategy;
 
 public class Game {
     private Board board;
@@ -60,6 +61,14 @@ public class Game {
 
     public void setWinner(Player winner) {
         this.winner = winner;
+    }
+
+    public GameWinningStrategy getGameWinningStrategy() {
+        return gameWinningStrategy;
+    }
+
+    public void setGameWinningStrategy(GameWinningStrategy gameWinningStrategy) {
+        this.gameWinningStrategy = gameWinningStrategy;
     }
 
     public void displayBoard(){
@@ -132,7 +141,7 @@ public class Game {
             game.setPlayers(players);
             game.setMoves(new ArrayList<>());
             game.setNextPlayerIndex(0);
-//            game.setGameWinningStrategy(new orderWinningStrategy(dimension));
+            game.setGameWinningStrategy(new OrderOneWinningStrategy(dimension));
             return game;
         }
     }

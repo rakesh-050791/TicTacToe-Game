@@ -25,6 +25,7 @@ public class Board {
                     System.out.println("| " + board.get(i).get(j).getPlayer().getSymbol() + " |");
                 }
             }
+            System.out.println();
         }
     }
 

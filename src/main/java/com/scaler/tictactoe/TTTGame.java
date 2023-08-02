@@ -2,6 +2,9 @@ package com.scaler.tictactoe;
 
 import java.util.Scanner;
 
+import com.scaler.tictactoe.controllers.GameController;
+import com.scaler.tictactoe.models.Game;
+import com.scaler.tictactoe.models.GameStatus;
 import com.scaler.tictactoe.models.Player;
 import com.scaler.tictactoe.models.PlayerType;
 
@@ -33,8 +36,22 @@ public class TTTGame {
 
        // System.out.println("List of Players = " + players.get(0).getName());
 
+        GameController gameController = new GameController();
+        Game game = gameController.createGame(dimension, players);
 
+        // Players will start playing the game now
 
+        while (game.getGameStatus().equals(GameStatus.IN_PROGRESS)) {
+            System.out.println("This is the current board : ");
+            gameController.displayBoard(game);
+
+            gameController.executeNextMove(game);
+        }
+
+        System.out.println("Game has Ended");
+        if (game.getGameStatus().equals(GameStatus.ENDED)){
+            System.out.println("Winner is " + gameController.getWinner(game).getName());
+        }
 
     }
 }
